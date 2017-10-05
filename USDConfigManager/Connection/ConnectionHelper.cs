@@ -1,15 +1,8 @@
 ﻿using System;
-using System.ServiceModel;
 using System.ServiceModel.Description;
-using System.Reflection;
-
-// These namespaces are found in the Microsoft.Xrm.Sdk.dll assembly
-// located in the SDK\bin folder of the SDK download.
 using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Client;
 using Microsoft.Xrm.Sdk.Discovery;
-using Microsoft.Crm.Sdk.Messages;
 
 namespace USDManager
 {
