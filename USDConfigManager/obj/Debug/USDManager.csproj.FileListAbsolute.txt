@@ -1,0 +1,15 @@
+C:\Lab\USDManager\USDManager\bin\Debug\USDManager.exe.config
+C:\Lab\USDManager\USDManager\bin\Debug\USDManager.exe
+C:\Lab\USDManager\USDManager\bin\Debug\USDManager.pdb
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.csprojResolveAssemblyReference.cache
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.MainForm.resources
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.Properties.Resources.resources
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.csproj.GenerateResource.Cache
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.exe
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.pdb
+C:\Lab\USDManager\USDManager\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Lab\USDManager\USDManager\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+C:\Lab\USDManager\USDManager\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Lab\USDManager\USDManager\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+C:\Lab\USDManager\USDManager\bin\Debug\Microsoft.Xrm.Tooling.Connector.dll
+C:\Lab\USDManager\USDManager\obj\Debug\USDManager.Forms.FormDuplicateActions.resources

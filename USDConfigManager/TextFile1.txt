@@ -1,0 +1,271 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using USDManager.Connection;
+
+namespace USDManager
+{
+    class DiffGenerator
+    {
+        static List<USDEntity> entities = new List<USDEntity>();
+
+
+        public DiffGenerator()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "uii_hostedapplication",
+                DisplayName = "HC",
+                PrimaryFieldName = "uii_name",
+                LinkEntity = "msdyusd_configuration_hostedcontrol",
+                LinkEntityFrom = "uii_hostedapplicationid",
+                LinkEntityTo = "uii_hostedapplicationid",
+                Columns = new List<string>() {
+                                "uii_sortorder",
+                                "uii_hostedapplicationtype",
+                                "uii_displaygroup",
+                                "uii_isglobalapplication",
+                                "msdyusd_crmwindowhosttype",
+                                "uii_hostedapplicationid"
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_agentscriptaction",
+                DisplayName = "Action",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_actioncalls",
+                LinkEntityFrom = "msdyusd_agentscriptactionid",
+                LinkEntityTo = "msdyusd_agentscriptactionid",
+                Columns = new List<string>() {
+                                "msdyusd_order",
+                                "msdyusd_application",
+                                "msdyusd_condition",
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_answer",
+                DisplayName = "Script",
+                PrimaryFieldName = "msdyusd_name",
+                Columns = new List<string>() {
+                                "msdyusd_answertext",
+                                "msdyusd_enabledcondition",
+                                "msdyusd_linkedtask",
+                                "msdyusd_order",
+                                "msdyusd_visiblecondition",
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_task",
+                DisplayName = "Task",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_agentscript",
+                LinkEntityFrom = "msdyusd_taskid",
+                LinkEntityTo = "msdyusd_taskid",
+                Columns = new List<string>() {
+                                "msdyusd_category",
+                                "msdyusd_scripttext",
+                                "msdyusd_showtab",
+                                "msdyusd_starttask",
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_uiievent",
+                DisplayName = "Event",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_event",
+                LinkEntityFrom = "msdyusd_uiieventid",
+                LinkEntityTo = "msdyusd_uiieventid",
+                Columns = new List<string>() {
+                                "msdyusd_hostedapplicationid",
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_scriptlet",
+                DisplayName = "Scriptlet",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_scriptlet",
+                LinkEntityFrom = "msdyusd_scriptletid",
+                LinkEntityTo = "msdyusd_scriptletid",
+                Columns = new List<string>() {
+                                "msdyusd_scripttext",
+                }
+            });
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_sessioninformation",
+                DisplayName = "Session Info.",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_sessionlines",
+                LinkEntityFrom = "msdyusd_sessioninformationid",
+                LinkEntityTo = "msdyusd_sessioninformationid",
+                Columns = new List<string>() {
+                                "msdyusd_selectedentity",
+                                "msdyusd_type",
+                                "msdyusd_display",
+                }
+            });
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_toolbarstrip",
+                DisplayName = "Toolbar Strip",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_toolbar",
+                LinkEntityFrom = "msdyusd_toolbarstripid",
+                LinkEntityTo = "msdyusd_toolbarstripid",
+                Columns = new List<string>() {
+                                "msdyusd_autoload",
+                                "msdyusd_enabledcondition",
+                }
+            });
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_toolbarbutton",
+                DisplayName = "Button",
+                PrimaryFieldName = "msdyusd_name",
+                Columns = new List<string>() {
+                                "msdyusd_buttontext",
+                                "msdyusd_enablecondition",
+                                "msdyusd_enabledcondition",
+                                "msdyusd_scriptcondition",
+                                "msdyusd_showtab",
+                                "msdyusd_toolbarid",
+                                "msdyusd_tooltip",
+                                "msdyusd_visiblecondition",
+                                "msdyusd_webresourceurl"
+                }
+            });
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "uii_action",
+                DisplayName = "UII Action",
+                PrimaryFieldName = "uii_name",
+                Columns = new List<string>() {
+                                "uii_automationmode",
+                                "uii_hostedapplicationid",
+                                "uii_isdefault",
+                                "uii_method",
+                                "uii_querystring",
+                                "uii_isrunmodeasynchronous",
+                                "uii_scriptfilepathtorun",
+                                "uii_url",
+                                "uii_workflowassemblytype",
+                                "uii_workflowrules",
+                                "uii_workflowxaml"
+                }
+            });
+
+            entities.Add(new USDEntity()
+            {
+                LogicalName = "msdyusd_windowroute",
+                DisplayName = "Nav. Rule",
+                PrimaryFieldName = "msdyusd_name",
+                LinkEntity = "msdyusd_configuration_windowroute",
+                LinkEntityFrom = "msdyusd_windowrouteid",
+                LinkEntityTo = "msdyusd_windowrouteid",
+                Columns = new List<string>() {
+                                "msdyusd_action",
+                                "msdyusd_nomatchesaction",
+                                "msdyusd_singlematchaction",
+                                "msdyusd_applicationaction",
+                                "msdyusd_condition",
+                                "msdyusd_nomatchdecision",
+                                "msdyusd_multiplematchesdecision",
+                                "msdyusd_singlematchdecision",
+                                "msdyusd_destination",
+                                "msdyusd_direction",
+                                "msdyusd_entity",
+                                "msdyusd_entitysearch",
+                                "msdyusd_field",
+                                "msdyusd_dashboardframe",
+                                "msdyusd_from",
+                                "msdyusd_fromsearch",
+                                "msdyusd_hidenavbar",
+                                "msdyusd_hideribbon",
+                                "msdyusd_initiatingactivity",
+                                "msdyusd_loadarea",
+                                "msdyusd_showtab",
+                                "msdyusd_sourceframe",
+                                "msdyusd_url",
+                }
+            });
+        }
+
+        public void Generate(TreeView tv)
+        {
+            if (ConnectionManager.LeftConn == null || ConnectionManager.RightConn == null)
+            {
+                MessageBox.Show("You will need 2 connections to perform a Diff");
+                return;
+            }
+
+            var leftProxy = ConnectionManager.LeftConn.Proxy;
+            var rightProxy = ConnectionManager.RightConn.Proxy;
+
+
+            StringBuilder htmlNavs = new StringBuilder();
+            StringBuilder htmlContents = new StringBuilder();
+            string html = @"<!DOCTYPE html>
+                            <html lang=""en"">
+                                  <head>
+                                    <title> Bootstrap Case </title>
+                                       <meta charset=""utf-8"">
+                                        <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
+                                           <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">
+                                            <script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js""></script>
+                                            <script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>
+											<style>
+												td {{padding:4px}}
+												th {{background:lightgray; border:solid 1px; padding:2px}}
+											</style>
+                                 </head>
+                                 <body>
+                                    <div class=""container"">
+                                          <h2>USD Configuration Diff. Report</h2>
+                                          <ul class=""nav nav-tabs"">
+                                            {0}
+                                          </ul>
+                                          <div class=""tab-content"">
+                                            {1}
+                                          </div>
+                                    </div>
+                                </body>
+                            </html>";
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\Temp\\usd-diff.html"))
+            {
+
+                tv.Nodes.Clear();
+
+                int index = 0;
+                foreach (var entity in entities)
+                {
+                    var node = new TreeNode(entity.DisplayName);
+                    tv.Nodes.Add(node);
+                    var result = entity.GetDiffInHtml(leftProxy, rightProxy, index++ == 0, node);
+                    htmlNavs.Append(result[0]);
+                    htmlContents.Append(result[1]);
+                }
+                //file.WriteLine(string.Format(html, htmlNavs.ToString(), htmlContents.ToString()));
+            }
+        }
+    }
+}

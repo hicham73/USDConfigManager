@@ -1,0 +1,10 @@
+<fetch top="50">
+  <entity name="msdyusd_toolbarbutton_agentscriptaction">
+    <link-entity name="msdyusd_toolbarbutton" from="msdyusd_toolbarbuttonid" to="msdyusd_toolbarbuttonid" link-type="inner" alias="a">
+      <attribute name="msdyusd_name" />
+    </link-entity>
+    <link-entity name="msdyusd_agentscriptaction" from="msdyusd_agentscriptactionid" to="msdyusd_agentscriptactionid" link-type="inner" alias="b">
+      <attribute name="msdyusd_name" />
+    </link-entity>
+  </entity>
+</fetch>
